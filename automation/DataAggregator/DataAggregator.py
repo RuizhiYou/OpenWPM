@@ -112,7 +112,7 @@ def process_query(query, curr, logger):
         if (not location or not crawl_id):
             return
         # Hash URL so that it does not contain invalid char
-        print(location)
+        # print(location)
         name = hashlib.sha224(location).hexdigest()
         filename = "{}_{}.json".format(crawl_id, name)
         s3 = boto3.client('s3')
