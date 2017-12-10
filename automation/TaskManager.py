@@ -216,7 +216,7 @@ class TaskManager:
             #                 "WHERE crawl_id = ?",
             #                 (screen_res, ua_string, browser.crawl_id)))
             browserInfo = json.dumps({browser.crawl_id:{'screen_res':screen_res, 'ua_string':ua_string}})
- 	    self.sock.send(("browserInfo", browserInfo))
+            self.sock.send(("browserInfo", browserInfo))
 
     def _manager_watchdog(self):
         """
