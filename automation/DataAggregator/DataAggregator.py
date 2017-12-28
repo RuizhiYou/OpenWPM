@@ -99,7 +99,7 @@ def process_query(query, curr, logger):
             f.write(',')
         else:
             f = open(filename, 'w')
-            f.write('{')
+            f.write('[')
         f.write(args[0])
         f.close
     elif (statement == "FIN"):
@@ -129,7 +129,7 @@ def process_query(query, curr, logger):
             f.write(',')
         else:
             f = open(filename, 'w')
-            f.write('{')
+            f.write('[')
         f.write(json.dumps(statement))
         f.close
         # print(filename)
@@ -137,7 +137,7 @@ def process_query(query, curr, logger):
            if os.path.isfile(fn):
             if (fn.startswith(str(crawl_id)) and fn != filename):
                 f = open(fn, 'a')
-                f.write('}')
+                f.write(']')
                 f.close()
                 s3.upload_file(fn, "safe-ucosp-2017", fn)
                 os.remove(fn)
@@ -172,7 +172,7 @@ def drain_queue(sock_queue, curr, logger):
         #print(fn)
         if (fn[-5:] == '.json'):
             f = open(fn, 'a')
-            f.write('}')
+            f.write(']')
             f.close()
             s3.upload_file(fn, "safe-ucosp-2017", fn)
             os.remove(fn)
